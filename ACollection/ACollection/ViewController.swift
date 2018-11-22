@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AEUrlLoader
 
 class ViewController: UIViewController {
-
+    let sds = Test()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        Test
     }
 
 
