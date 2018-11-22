@@ -20,6 +20,7 @@
 		612AABA721A6CCCD007E734B /* WallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AABA621A6CCCD007E734B /* WallModel.swift */; };
 		612AABAA21A6CCEA007E734B /* WallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AABA821A6CCEA007E734B /* WallViewCell.swift */; };
 		612AABAB21A6CCEA007E734B /* WallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612AABA921A6CCEA007E734B /* WallViewCell.xib */; };
+		612AABBA21A6E8FD007E734B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AABB921A6E8FD007E734B /* Constants.swift */; };
 		D78399DF54B8B37414CF54E9 /* Pods_ACollectionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D515D80D46BC811F76F5EDA /* Pods_ACollectionTests.framework */; };
 		DC902A686AA17BE4548342EA /* Pods_ACollectionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2BC696A0E3C33A6C183214 /* Pods_ACollectionUITests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		612AABA621A6CCCD007E734B /* WallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallModel.swift; sourceTree = "<group>"; };
 		612AABA821A6CCEA007E734B /* WallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallViewCell.swift; sourceTree = "<group>"; };
 		612AABA921A6CCEA007E734B /* WallViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallViewCell.xib; sourceTree = "<group>"; };
+		612AABB921A6E8FD007E734B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		705584E09AFFF0CDC00BC309 /* Pods-ACollectionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACollectionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACollectionTests/Pods-ACollectionTests.release.xcconfig"; sourceTree = "<group>"; };
 		9449E340A3DAB10C1B20B3D3 /* Pods-ACollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACollection/Pods-ACollection.release.xcconfig"; sourceTree = "<group>"; };
 		9A3FDB5034CF03C9C3A643CD /* Pods-ACollectionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACollectionUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ACollectionUITests/Pods-ACollectionUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,9 +175,9 @@
 		612AAB2E21A6B817007E734B /* ACollection */ = {
 			isa = PBXGroup;
 			children = (
-				612AAB2F21A6B817007E734B /* AppDelegate.swift */,
+				612AABB721A6E8C8007E734B /* Supports */,
 				612AABA121A6CC51007E734B /* ViewControllers */,
-				612AAB3321A6B817007E734B /* Main.storyboard */,
+				612AABAC21A6D1DA007E734B /* Storyboards */,
 				612AAB3621A6B818007E734B /* Assets.xcassets */,
 				612AAB3821A6B818007E734B /* LaunchScreen.storyboard */,
 				612AAB3B21A6B818007E734B /* Info.plist */,
@@ -253,6 +255,31 @@
 				612AABA921A6CCEA007E734B /* WallViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		612AABAC21A6D1DA007E734B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				612AAB3321A6B817007E734B /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		612AABB721A6E8C8007E734B /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				612AAB2F21A6B817007E734B /* AppDelegate.swift */,
+				612AABB821A6E8DC007E734B /* Constants */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		612AABB821A6E8DC007E734B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				612AABB921A6E8FD007E734B /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612AABBA21A6E8FD007E734B /* Constants.swift in Sources */,
 				612AABAA21A6CCEA007E734B /* WallViewCell.swift in Sources */,
 				612AAB3021A6B817007E734B /* AppDelegate.swift in Sources */,
 				612AABA321A6CC92007E734B /* WallCollectionViewController.swift in Sources */,
