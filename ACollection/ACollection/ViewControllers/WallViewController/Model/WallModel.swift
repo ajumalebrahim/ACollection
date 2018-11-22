@@ -388,18 +388,25 @@ extension DataRequest {
     }
 }
 
+protocol WallModelDelegate {
+    func wallApicompleted(_ result: [WallElement])
+}
 
 class WallModel {
+    var delegate: WallModelDelegate?
+    
+    
     func getWallData() {
         guard let url = URL.init(string: APPURL.getWall) else {
             return
         }
-           Alamofire.request(url).responseWall { response in
-             if let wall = response.result.value {
-//               print(wall)
-                
-             }
-           }
+       Alamofire.request(url).responseWall { response in
+         if let wall = response.result.value {
+            self.delegate?.wallApicompleted(wall)
+         } else {
+            self.delegate?.wallApicompleted([])
+        }
+       }
     }
 }
 

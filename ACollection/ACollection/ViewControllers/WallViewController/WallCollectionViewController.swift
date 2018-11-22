@@ -10,32 +10,38 @@ import UIKit
 
 class WallCollectionViewController: UICollectionViewController {
 
+    var walls = [WallElement]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Register cell classes
         self.collectionView!.register(WallViewCell.nib, forCellWithReuseIdentifier: WallViewCell.identifier)
-        WallModel.init().getWallData()
-
+        let model = WallModel()
+        model.delegate = self
+        model.getWallData()
         // Do any additional setup after loading the view.
     }
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return walls.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WallViewCell.identifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WallViewCell.identifier, for: indexPath) as? WallViewCell else {
+            return WallViewCell()
+        }
     
         // Configure the cell
-    
+        let element: WallElement = walls[indexPath.row]
+        cell.updateCellData(element)
         return cell
     }
 
@@ -70,4 +76,15 @@ class WallCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension WallCollectionViewController: WallModelDelegate {
+    func wallApicompleted(_ result: [WallElement]) {
+        if result.count > 0 {
+            walls = result
+        }
+        self.collectionView.reloadData()
+    }
+    
+    
 }

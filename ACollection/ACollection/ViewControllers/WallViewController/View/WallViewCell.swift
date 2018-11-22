@@ -10,6 +10,9 @@ import UIKit
 
 class WallViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var imgVwIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +24,10 @@ class WallViewCell: UICollectionViewCell {
     
     static var identifier: String {
         return String(describing: self)
+    }
+    
+    func updateCellData(_ data: WallElement) {
+        lblName.text = data.user.name
     }
 
 }
