@@ -2,7 +2,7 @@
 //  ImageLoader.swift
 //  AEUrlLoader
 //
-//  Created by SpaceWax on 11/23/18.
+//  Created by Ajumal Ebrahim on 11/23/18.
 //  Copyright © 2018 Ajumal Ebrahim. All rights reserved.
 //
 
