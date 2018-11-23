@@ -10,7 +10,8 @@
 		612AAB7121A6BAAE007E734B /* AEUrlLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612AAB6721A6BAAD007E734B /* AEUrlLoader.framework */; };
 		612AAB7621A6BAAE007E734B /* AEUrlLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AAB7521A6BAAE007E734B /* AEUrlLoaderTests.swift */; };
 		612AAB7821A6BAAE007E734B /* AEUrlLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 612AAB6A21A6BAAD007E734B /* AEUrlLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		612AAB8221A6BAD6007E734B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AAB8121A6BAD6007E734B /* Test.swift */; };
+		A18443A421A853130019EDD7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18443A321A853130019EDD7 /* ImageLoader.swift */; };
+		A18443A621A853F80019EDD7 /* CacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18443A521A853F80019EDD7 /* CacheData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,8 @@
 		612AAB7021A6BAAE007E734B /* AEUrlLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AEUrlLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		612AAB7521A6BAAE007E734B /* AEUrlLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEUrlLoaderTests.swift; sourceTree = "<group>"; };
 		612AAB7721A6BAAE007E734B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		612AAB8121A6BAD6007E734B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		A18443A321A853130019EDD7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		A18443A521A853F80019EDD7 /* CacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				612AAB6A21A6BAAD007E734B /* AEUrlLoader.h */,
-				612AAB8121A6BAD6007E734B /* Test.swift */,
+				A18443A321A853130019EDD7 /* ImageLoader.swift */,
+				A18443A521A853F80019EDD7 /* CacheData.swift */,
 				612AAB6B21A6BAAD007E734B /* Info.plist */,
 			);
 			path = AEUrlLoader;
@@ -198,7 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				612AAB8221A6BAD6007E734B /* Test.swift in Sources */,
+				A18443A621A853F80019EDD7 /* CacheData.swift in Sources */,
+				A18443A421A853130019EDD7 /* ImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
