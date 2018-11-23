@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class APIClient {
     
     func get(_ url: String, onSuccess success: @escaping (_ data: Data) -> Void, onFailure failure: @escaping (_ error: Error?) -> Void) {
@@ -29,12 +28,12 @@ class APIClient {
             (data, response, error) in
             // check for any errors
             guard error == nil else {
-                print(error!)
                 failure(error)
                 return
             }
             // make sure we got data
             guard let responseData = data else {
+                failure(error)
                 return
             }
             
@@ -62,16 +61,14 @@ class APIClient {
         let task = session.dataTask(with: urlRequest) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
-                print(error!)
+                failure(error)
                 return
             }
             guard let responseData = data else {
-                print("Error: did not receive data")
+                failure(error)
                 return
             }
-            
-            // parse the result as JSON, since that's what the API provides
+            success(responseData)
         
         }
         task.resume()
