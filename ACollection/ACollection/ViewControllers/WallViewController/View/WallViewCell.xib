@@ -18,23 +18,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-th-oNK">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U21-kS-pRK">
-                        <rect key="frame" x="15" y="164" width="170" height="21"/>
+                        <rect key="frame" x="8" y="171" width="184" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-th-oNK">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="U21-kS-pRK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Amc-lR-UNO"/>
-                <constraint firstAttribute="trailing" secondItem="U21-kS-pRK" secondAttribute="trailing" constant="15" id="Bor-zO-3TH"/>
+                <constraint firstItem="U21-kS-pRK" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="120-Ow-r10"/>
+                <constraint firstItem="U21-kS-pRK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Amc-lR-UNO"/>
                 <constraint firstAttribute="bottom" secondItem="1UN-th-oNK" secondAttribute="bottom" id="UXy-Pd-e26"/>
                 <constraint firstItem="1UN-th-oNK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b8G-Zh-d85"/>
-                <constraint firstAttribute="bottom" secondItem="U21-kS-pRK" secondAttribute="bottom" constant="15" id="c43-eg-BEc"/>
+                <constraint firstAttribute="bottom" secondItem="U21-kS-pRK" secondAttribute="bottom" constant="8" id="c43-eg-BEc"/>
                 <constraint firstItem="1UN-th-oNK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dai-Ct-0L6"/>
                 <constraint firstAttribute="trailing" secondItem="1UN-th-oNK" secondAttribute="trailing" id="vhg-hR-AaU"/>
             </constraints>

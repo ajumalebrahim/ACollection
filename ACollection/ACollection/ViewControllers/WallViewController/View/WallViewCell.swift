@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AEUrlLoader
 
 class WallViewCell: UICollectionViewCell {
 
@@ -18,7 +19,7 @@ class WallViewCell: UICollectionViewCell {
         // Initialization code
     }
         
-    static var nib:UINib {
+    static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     
@@ -28,6 +29,7 @@ class WallViewCell: UICollectionViewCell {
     
     func updateCellData(_ data: WallElement) {
         lblName.text = data.user.name
+        imgVwIcon.loadImageAsync(with: data.user.profileImage.large)
     }
 
 }
