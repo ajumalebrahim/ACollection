@@ -32,11 +32,9 @@ extension UIImageView {
         oldTask?.cancel()
         
         // reset imageview's image
-        
         self.image = nil
         
         // allow supplying of `nil` to remove old image and then return immediately
-        
         guard let urlString = urlString else { return }
         
         // check cache
@@ -52,27 +50,25 @@ extension UIImageView {
         currentURL = url
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             self?.currentTask = nil
-            
+
             //error handling
             
             if let error = error {
-                // don't bother reporting cancelation errors
-                
                 if (error as NSError).domain == NSURLErrorDomain && (error as NSError).code == NSURLErrorCancelled {
                     return
                 }
-                
+
                 print(error)
                 return
             }
-            
+
             guard let data = data, let downloadedImage = UIImage(data: data) else {
                 print("unable to extract image")
                 return
             }
-            
+
             CacheData.shared.save(image: downloadedImage, forKey: urlString)
-            
+
             if url == self?.currentURL {
                 DispatchQueue.main.async {
                     self?.image = downloadedImage
