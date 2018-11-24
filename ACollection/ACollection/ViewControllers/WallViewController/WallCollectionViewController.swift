@@ -50,8 +50,10 @@ extension WallCollectionViewController: WallModelDelegate {
         if result.count > 0 {
             walls = result
         }
-        stopRefresher()
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.stopRefresher()
+            self.collectionView.reloadData()
+        }
     }
 }
 

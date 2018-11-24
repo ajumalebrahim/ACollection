@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ajumal Ebrahim. All rights reserved.
 //
 
-import Alamofire
+import AEUrlLoader
 
 typealias Wall = [WallElement]
 
@@ -362,32 +362,6 @@ func newJSONEncoder() -> JSONEncoder {
     return encoder
 }
 
-// MARK: - Alamofire response handlers
-
-extension DataRequest {
-    fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {
-        return DataResponseSerializer { _, response, data, error in
-            guard error == nil else { return .failure(error!) }
-            
-            guard let data = data else {
-                return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
-            }
-            
-            return Result { try newJSONDecoder().decode(T.self, from: data) }
-        }
-    }
-    
-    @discardableResult
-    fileprivate func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
-        return response(queue: queue, responseSerializer: decodableResponseSerializer(), completionHandler: completionHandler)
-    }
-    
-    @discardableResult
-    func responseWall(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<Wall>) -> Void) -> Self {
-        return responseDecodable(queue: queue, completionHandler: completionHandler)
-    }
-}
-
 protocol WallModelDelegate {
     func wallApicompleted(_ result: [WallElement])
 }
@@ -397,16 +371,22 @@ class WallModel {
     
     
     func getWallData() {
+//        AEUrlLoa
+        
         guard let url = URL.init(string: APPURL.getWall) else {
             return
         }
-       Alamofire.request(url).responseWall { response in
-         if let wall = response.result.value {
-            self.delegate?.wallApicompleted(wall)
-         } else {
+        let api = APIClient()
+        api.get(url, onSuccess: { (data) in
+            if let wall = try? newJSONDecoder().decode(Wall.self, from: data) {
+                self.delegate?.wallApicompleted(wall)
+            } else {
+                self.delegate?.wallApicompleted([])
+            }
+            
+        }) { (error) in
             self.delegate?.wallApicompleted([])
         }
-       }
     }
 }
 

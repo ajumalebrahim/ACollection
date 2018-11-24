@@ -8,16 +8,13 @@
 
 import Foundation
 
-class APIClient {
+public class APIClient {
+    public init() { }
     
-    func get(_ url: String, onSuccess success: @escaping (_ data: Data) -> Void, onFailure failure: @escaping (_ error: Error?) -> Void) {
+    public func get(_ url: URL, onSuccess success: @escaping (_ data: Data) -> Void, onFailure failure: @escaping (_ error: Error?) -> Void) {
         // Set up the URL request
-        guard let endpoint = URL(string: url) else {
-            let error: Error? = NSError(domain:"", code:1, userInfo:nil)
-            failure(error)
-            return
-        }
-        let urlRequest = URLRequest(url: endpoint)
+
+        let urlRequest = URLRequest(url: url)
         
         // set up the session
         let config = URLSessionConfiguration.default
