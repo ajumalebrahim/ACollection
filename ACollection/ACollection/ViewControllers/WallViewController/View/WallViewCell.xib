@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="160" width="200" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U21-kS-pRK">
-                                <rect key="frame" x="20" y="10" width="160" height="20.5"/>
+                                <rect key="frame" x="8" y="0.0" width="184" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,9 +34,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="U21-kS-pRK" firstAttribute="centerX" secondItem="YJD-BG-QOW" secondAttribute="centerX" id="3uo-Cl-rpA"/>
-                            <constraint firstItem="U21-kS-pRK" firstAttribute="leading" secondItem="YJD-BG-QOW" secondAttribute="leading" constant="20" id="HbR-UO-iE3"/>
+                            <constraint firstItem="U21-kS-pRK" firstAttribute="leading" secondItem="YJD-BG-QOW" secondAttribute="leading" constant="8" id="HbR-UO-iE3"/>
                             <constraint firstAttribute="height" constant="40" id="SVu-Q5-4tR"/>
-                            <constraint firstItem="U21-kS-pRK" firstAttribute="centerY" secondItem="YJD-BG-QOW" secondAttribute="centerY" id="p5h-Ft-rFv"/>
+                            <constraint firstAttribute="bottom" secondItem="U21-kS-pRK" secondAttribute="bottom" id="ejc-dH-VTv"/>
+                            <constraint firstItem="U21-kS-pRK" firstAttribute="top" secondItem="YJD-BG-QOW" secondAttribute="top" id="p1F-rn-6mM"/>
                         </constraints>
                     </view>
                 </subviews>

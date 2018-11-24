@@ -11,79 +11,71 @@ import UIKit
 class WallCollectionViewController: UICollectionViewController {
 
     var walls = [WallElement]()
+    var refresher: UIRefreshControl!
+    let model = WallModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.refresher = UIRefreshControl()
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        self.collectionView!.refreshControl = refresher
+//
         // Register cell classes
         self.collectionView!.register(WallViewCell.nib, forCellWithReuseIdentifier: WallViewCell.identifier)
-        let model = WallModel()
+        
+        // Call api
         model.delegate = self
         model.getWallData()
-        // Do any additional setup after loading the view.
     }
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return walls.count
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WallViewCell.identifier, for: indexPath) as? WallViewCell else {
-            return WallViewCell()
-        }
     
-        // Configure the cell
-        let element: WallElement = walls[indexPath.row]
-        cell.updateCellData(element)
-        return cell
+    @objc func loadData() {
+        self.collectionView!.refreshControl?.beginRefreshing()
+        model.getWallData()
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    func stopRefresher() {
+        self.collectionView!.refreshControl?.endRefreshing()
+        self.refresher.endRefreshing()
     }
-    */
 
 }
+
+// MARK: WallModelDelegate
 
 extension WallCollectionViewController: WallModelDelegate {
     func wallApicompleted(_ result: [WallElement]) {
         if result.count > 0 {
             walls = result
         }
+        stopRefresher()
         self.collectionView.reloadData()
+    }
+}
+
+// MARK: UICollectionViewDataSource
+
+extension WallCollectionViewController {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return walls.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WallViewCell.identifier, for: indexPath) as? WallViewCell else {
+            return WallViewCell()
+        }
+        
+        // Configure the cell
+        let element: WallElement = walls[indexPath.row]
+        cell.updateCellData(element)
+        return cell
     }
     
     
