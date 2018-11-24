@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class WallCollectionViewController: UICollectionViewController {
 
     var walls = [WallElement]()
     var refresher: UIRefreshControl!
     let model = WallModel()
+    
+    var hud = MBProgressHUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +32,24 @@ class WallCollectionViewController: UICollectionViewController {
         // Call api
         model.delegate = self
         model.getWallData()
+        showHud()
     }
     
-    @objc func loadData() {
+    @objc fileprivate func loadData() {
         self.collectionView!.refreshControl?.beginRefreshing()
         model.getWallData()
+        showHud()
     }
     
-    func stopRefresher() {
+    fileprivate func stopRefresher() {
         self.collectionView!.refreshControl?.endRefreshing()
         self.refresher.endRefreshing()
+    }
+    
+    private func showHud() {
+        hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .annularDeterminate
+        hud.label.text = "Loading"
     }
 
 }
@@ -53,6 +64,7 @@ extension WallCollectionViewController: WallModelDelegate {
         DispatchQueue.main.async {
             self.stopRefresher()
             self.collectionView.reloadData()
+            self.hud.hide(animated: true)
         }
     }
 }

@@ -7,7 +7,7 @@ target 'ACollection' do
 
   # Pods for ACollection
 
-	pod 'Alamofire'
+	pod 'MBProgressHUD'
 
   target 'ACollectionTests' do
     inherit! :search_paths
