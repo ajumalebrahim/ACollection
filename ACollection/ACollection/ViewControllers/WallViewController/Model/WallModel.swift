@@ -368,11 +368,8 @@ protocol WallModelDelegate {
 
 class WallModel {
     var delegate: WallModelDelegate?
-    
-    
     func getWallData() {
-//        AEUrlLoa
-        
+//        Call Api
         guard let url = URL.init(string: APPURL.getWall) else {
             return
         }
